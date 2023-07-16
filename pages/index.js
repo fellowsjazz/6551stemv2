@@ -1,7 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { Button, Flex, Select } from "@chakra-ui/react";
+import { Button, Flex, Select, Text, Image } from "@chakra-ui/react";
 import * as Tone from "tone";
 import { useEffect, useState } from "react";
 
@@ -144,94 +143,223 @@ export default function Home() {
   };
 
   return (
-    <Flex direction="column">
-      <Select
-        onChange={(event) => {
-          setDrumSelection(event.target.value);
-          setIsPlaying(false);
-        }}
+    <Flex justify={"center"}>
+      <Image
+        zIndex={-1}
+        src={
+          "https://storage.googleapis.com/playerz_cardz/sonic_voyage_img/zzbackground.png"
+        }
+        position={"absolute"}
+        h={"100vh"}
+        w={"100vh"}
+      />
+      <Flex
+        direction="column"
+        w={"100vh"}
+        h={"100vh"}
+      
+        justify={"space-between"}
+        px={"2.5%"}
+        boxSizing="border-box"
       >
-        <option value={"0"}>Drum 1</option>
-        <option value={"1"}>Drum 2</option>
-        <option value={"2"}>Drum 3</option>
-        <option value={"3"}>Drum 4</option>
-        <option value={"4"}>Drum 5</option>
-      </Select>
-      <Select
-        onChange={(event) => {
-          setChordsSelection(event.target.value);
-          setIsPlaying(false);
-        }}
-      >
-        <option value={"0"}>Chords 1</option>
-        <option value={"1"}>Chords 2</option>
-        <option value={"2"}>Chords 3</option>
-        <option value={"3"}>Chords 4</option>
-        <option value={"4"}>Chords 5</option>
-      </Select>
-      <Select
-        onChange={(event) => {
-          setBassSelection(event.target.value);
-          setIsPlaying(false);
-        }}
-      >
-        <option value={"0"}>Bass 1</option>
-        <option value={"1"}>Bass 2</option>
-        <option value={"2"}>Bass 3</option>
-        <option value={"3"}>Bass 4</option>
-        <option value={"4"}>Bass 5</option>
-      </Select>
-      <Select
-        onChange={(event) => {
-          setLeadSelection(event.target.value);
-          setIsPlaying(false);
-        }}
-      >
-        <option value={"0"}>Lead 1</option>
-        <option value={"1"}>Lead 2</option>
-        <option value={"2"}>Lead 3</option>
-        <option value={"3"}>Lead 4</option>
-        <option value={"4"}>Lead 5</option>
-      </Select>
-      <Select
-        onChange={(event) => {
-          setAccentSelection(event.target.value);
-          setIsPlaying(false);
-        }}
-      >
-        <option value={"0"}>Accent 1</option>
-        <option value={"1"}>Accent 2</option>
-        <option value={"2"}>Accent 3</option>
-        <option value={"3"}>Accent 4</option>
-        <option value={"4"}>Accent 5</option>
-      </Select>
-      <Select
-        onChange={(event) => {
-          setEfxSelection(event.target.value);
-          setIsPlaying(false);
-        }}
-      >
-        <option value={"0"}>EFX 1</option>
-        <option value={"1"}>EFX 2</option>
-        <option value={"2"}>EFX 3</option>
-        <option value={"3"}>EFX 4</option>
-        <option value={"4"}>EFX 5</option>
-      </Select>
-      <Select
-        onChange={(event) => {
-          setBreakdownSelection(event.target.value);
-          setIsPlaying(false);
-        }}
-      >
-        <option value={"0"}>Breakdown 1</option>
-        <option value={"1"}>Breakdown 2</option>
-        <option value={"2"}>Breakdown 3</option>
-        <option value={"3"}>Breakdown 4</option>
-        <option value={"4"}>Breakdown 5</option>
-      </Select>
-      <Button onClick={handlePlay} disabled={isLoading || isDelaying}>
-        {!isPlaying ? "Play" : "Pause"}
-      </Button>
+        <Image mt={"5%"}  borderRadius="20px" backgroundColor={"rgba(157, 144, 240, 0.6)"}  src="https://bafybeih67trchaypi4onwg3avlzi3g727ghpjuwfcjpmm5bsk4u6odf3ly.ipfs.nftstorage.link/cooltext439515875310943.png"/>
+        <Flex
+          direction="row"
+          alignItems="center"
+          backgroundColor="white"
+          borderRadius="20px"
+          boxShadow={"4px 4px 12px 0px #9d90f0"}
+          boxSizing="border-box"
+        >
+          <Text w="10%" ml="2%">
+            Bass
+          </Text>
+          <Select
+            onChange={(event) => {
+              setBassSelection(event.target.value);
+              setIsPlaying(false);
+            }}
+            variant="filled"
+            borderRadius="20px"
+            
+            
+          >
+            <option value={"0"}>Bridge Plucker</option>
+            <option value={"1"}>Subpumper</option>
+            <option value={"2"}>Fat Bottom</option>
+            <option value={"3"}>Bass Pusher</option>
+            <option value={"4"}>Arpeggiator</option>
+          </Select>
+        </Flex>
+        <Flex
+          direction="row"
+          alignItems="center"
+          backgroundColor="white"
+          borderRadius="20px"
+          boxShadow={"4px 4px 12px 0px #9d90f0"}
+        >
+          <Text w="10%" ml="2%">
+            Drums
+          </Text>
+          <Select
+            onChange={(event) => {
+              setDrumSelection(event.target.value);
+              setIsPlaying(false);
+            }}
+            variant="filled"
+            borderRadius="20px"
+          >
+            <option value={"0"}>Tambist</option>
+            <option value={"1"}>8bit Drummer</option>
+            <option value={"2"}>The Slomo</option>
+            <option value={"3"}>Heartbeat</option>
+            <option value={"4"}>House Drummer</option>
+          </Select>
+        </Flex>
+        <Flex
+          direction="row"
+          alignItems="center"
+          backgroundColor="white"
+          borderRadius="20px"
+          boxShadow={"4px 4px 12px 0px #9d90f0"}
+        >
+          <Text w="10%" ml="2%">
+            Lead
+          </Text>
+          <Select
+            onChange={(event) => {
+              setLeadSelection(event.target.value);
+              setIsPlaying(false);
+            }}
+            variant="filled"
+            borderRadius="20px"
+          >
+            <option value={"0"}>The Traveler</option>
+            <option value={"1"}>The Visitor</option>
+            <option value={"2"}>Whistler</option>
+            <option value={"3"}>Sonic Voyage</option>
+            <option value={"4"}>The Bull</option>
+          </Select>
+        </Flex>
+        <Flex
+          direction="row"
+          alignItems="center"
+          backgroundColor="white"
+          borderRadius="20px"
+          boxShadow={"4px 4px 12px 0px #9d90f0"}
+        >
+          <Text w="10%" ml="2%">
+            Chords
+          </Text>
+          <Select
+            onChange={(event) => {
+              setChordsSelection(event.target.value);
+              setIsPlaying(false);
+            }}
+            variant="filled"
+            borderRadius="20px"
+          >
+            <option value={"0"}>Pump It Up</option>
+            <option value={"1"}>The Vibist</option>
+            <option value={"2"}>The Cheesist</option>
+            <option value={"3"}>Mr Smooth</option>
+            <option value={"4"}>Feedback Loop</option>
+            <option value={"5"}>The Rhodes Trip</option>
+          </Select>
+        </Flex>
+        <Flex
+          direction="row"
+          alignItems="center"
+          backgroundColor="white"
+          borderRadius="20px"
+          boxShadow={"4px 4px 12px 0px #9d90f0"}
+        >
+          <Text w="10%" ml="2%">
+            Accent
+          </Text>
+          <Select
+            onChange={(event) => {
+              setAccentSelection(event.target.value);
+              setIsPlaying(false);
+            }}
+            variant="filled"
+            borderRadius="20px"
+          >
+            <option value={"0"}>Synth Poker</option>
+            <option value={"1"}>Airhead</option>
+            <option value={"2"}>Synth Flight</option>
+            <option value={"3"}>The Dubber</option>
+            <option value={"4"}>The Skank</option>
+            <option value={"5"}>The Jumper</option>
+          </Select>
+        </Flex>
+        <Flex
+          direction="row"
+          alignItems="center"
+          backgroundColor="white"
+          borderRadius="20px"
+          boxShadow={"4px 4px 12px 0px #9d90f0"}
+        >
+          <Text w="10%" ml="2%">
+            EFX
+          </Text>
+          <Select
+            onChange={(event) => {
+              setEfxSelection(event.target.value);
+              setIsPlaying(false);
+            }}
+            variant="filled"
+            borderRadius="20px"
+          >
+            <option value={"0"}>The Polygraph</option>
+            <option value={"1"}>Emergency</option>
+            <option value={"2"}>Telegrapher</option>
+            <option value={"3"}>The Arcade</option>
+            <option value={"4"}>The Radio</option>
+            <option value={"5"}>The Airhorn</option>
+            <option value={"6"}>Transmitter</option>
+            <option value={"7"}>Checked Out</option>
+            <option value={"8"}>The Cyborg</option>
+          </Select>
+        </Flex>
+        <Flex
+          direction="row"
+          alignItems="center"
+          backgroundColor="white"
+          borderRadius="20px"
+          boxShadow={"4px 4px 12px 0px #9d90f0"}
+        >
+          <Text w="10%" ml="2%">
+            Breakdown
+          </Text>
+          <Select
+            onChange={(event) => {
+              setBreakdownSelection(event.target.value);
+              setIsPlaying(false);
+            }}
+            variant="filled"
+            borderRadius="20px"
+          >
+            <option value={"0"}>The Gospel</option>
+            <option value={"1"}>Ascender</option>
+            <option value={"2"}>The Lab</option>
+            <option value={"3"}>Shredders</option>
+            <option value={"4"}>The Shepherd</option>
+            <option value={"5"}>70s Vibez</option>
+            <option value={"6"}>The Stairway</option>
+            <option value={"7"}>The Comic</option>
+          </Select>
+        </Flex>
+        <Button
+          onClick={handlePlay}
+          disabled={isLoading || isDelaying}
+          mb={"5%"}
+          borderRadius={"20px"}
+          backgroundColor={!isPlaying ? "green.300" : "red.300"}
+        >
+          {!isPlaying ? "Play" : "Pause"}
+        </Button>
+      </Flex>
     </Flex>
   );
 }
