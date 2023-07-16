@@ -1,6 +1,13 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { Button, Flex, Select, Text, Image } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  Select,
+  Text,
+  Image,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import * as Tone from "tone";
 import { useEffect, useState } from "react";
 
@@ -23,6 +30,8 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [isDelaying, setIsDelaying] = useState(false);
 
+  const [isLargerThan500] = useMediaQuery("(min-height: 500px)");
+
   useEffect(() => {
     const drumPlayer = new Tone.Player(
       `https://storage.googleapis.com/playerz_cardz/sonic_voyage/Drums${drumSelection}.mp3`,
@@ -31,6 +40,7 @@ export default function Home() {
       }
     ).toDestination();
     setDrumPlayer(drumPlayer);
+    console.log("isLargerThan500 = ", isLargerThan500);
   }, [drumSelection]);
 
   useEffect(() => {
@@ -157,21 +167,25 @@ export default function Home() {
         direction="column"
         w={"100vh"}
         h={"100vh"}
-      
         justify={"space-between"}
         px={"2.5%"}
         boxSizing="border-box"
       >
-        <Image mt={"5%"}  borderRadius="20px" backgroundColor={"rgba(157, 144, 240, 0.6)"}  src="https://bafybeih67trchaypi4onwg3avlzi3g727ghpjuwfcjpmm5bsk4u6odf3ly.ipfs.nftstorage.link/cooltext439515875310943.png"/>
+        <Image
+          mt={!isLargerThan500 ? "1%" : "5%"}
+          borderRadius="20px"
+          backgroundColor={"rgba(157, 144, 240, 0.6)"}
+          src="https://bafybeih67trchaypi4onwg3avlzi3g727ghpjuwfcjpmm5bsk4u6odf3ly.ipfs.nftstorage.link/cooltext439515875310943.png"
+        />
         <Flex
           direction="row"
           alignItems="center"
-          backgroundColor="white"
-          borderRadius="20px"
+          backgroundColor={"rgba(149, 156, 151, 0.8)"}
           boxShadow={"4px 4px 12px 0px #9d90f0"}
-          boxSizing="border-box"
+          borderRadius="20px"
+          
         >
-          <Text w="10%" ml="2%">
+          <Text w="10%" ml="2%" minW={"80px"} fontSize={isLargerThan500 ? "L" : "sm"}>
             Bass
           </Text>
           <Select
@@ -181,8 +195,8 @@ export default function Home() {
             }}
             variant="filled"
             borderRadius="20px"
-            
-            
+            backgroundColor={"rgba(149, 156, 151, 0.0)"}
+            h={isLargerThan500 ? "50px" : "30px"}
           >
             <option value={"0"}>Bridge Plucker</option>
             <option value={"1"}>Subpumper</option>
@@ -194,11 +208,12 @@ export default function Home() {
         <Flex
           direction="row"
           alignItems="center"
-          backgroundColor="white"
-          borderRadius="20px"
+          backgroundColor={"rgba(149, 156, 151, 0.8)"}
+          us="20px"
           boxShadow={"4px 4px 12px 0px #9d90f0"}
+          borderRadius="20px"
         >
-          <Text w="10%" ml="2%">
+          <Text w="10%" ml="2%" minW={"80px"} fontSize={isLargerThan500 ? "L" : "sm"}>
             Drums
           </Text>
           <Select
@@ -208,6 +223,8 @@ export default function Home() {
             }}
             variant="filled"
             borderRadius="20px"
+            backgroundColor={"rgba(149, 156, 151, 0.0)"}
+            h={isLargerThan500 ? "50px" : "30px"}
           >
             <option value={"0"}>Tambist</option>
             <option value={"1"}>8bit Drummer</option>
@@ -219,11 +236,12 @@ export default function Home() {
         <Flex
           direction="row"
           alignItems="center"
-          backgroundColor="white"
-          borderRadius="20px"
+          backgroundColor={"rgba(149, 156, 151, 0.8)"}
+          us="20px"
           boxShadow={"4px 4px 12px 0px #9d90f0"}
+          borderRadius="20px"
         >
-          <Text w="10%" ml="2%">
+          <Text w="10%" ml="2%" minW={"80px"} fontSize={isLargerThan500 ? "L" : "sm"}>
             Lead
           </Text>
           <Select
@@ -233,6 +251,8 @@ export default function Home() {
             }}
             variant="filled"
             borderRadius="20px"
+            backgroundColor={"rgba(149, 156, 151, 0.0)"}
+            h={isLargerThan500 ? "50px" : "30px"}
           >
             <option value={"0"}>The Traveler</option>
             <option value={"1"}>The Visitor</option>
@@ -244,11 +264,12 @@ export default function Home() {
         <Flex
           direction="row"
           alignItems="center"
-          backgroundColor="white"
-          borderRadius="20px"
+          backgroundColor={"rgba(149, 156, 151, 0.8)"}
+          us="20px"
           boxShadow={"4px 4px 12px 0px #9d90f0"}
+          borderRadius="20px"
         >
-          <Text w="10%" ml="2%">
+          <Text w="10%" ml="2%" minW={"80px"} fontSize={isLargerThan500 ? "L" : "sm"}>
             Chords
           </Text>
           <Select
@@ -258,6 +279,8 @@ export default function Home() {
             }}
             variant="filled"
             borderRadius="20px"
+            backgroundColor={"rgba(149, 156, 151, 0.0)"}
+            h={isLargerThan500 ? "50px" : "30px"}
           >
             <option value={"0"}>Pump It Up</option>
             <option value={"1"}>The Vibist</option>
@@ -270,11 +293,12 @@ export default function Home() {
         <Flex
           direction="row"
           alignItems="center"
-          backgroundColor="white"
-          borderRadius="20px"
+          backgroundColor={"rgba(149, 156, 151, 0.8)"}
+          us="20px"
           boxShadow={"4px 4px 12px 0px #9d90f0"}
+          borderRadius="20px"
         >
-          <Text w="10%" ml="2%">
+          <Text w="10%" ml="2%" minW={"80px"} fontSize={isLargerThan500 ? "L" : "sm"}>
             Accent
           </Text>
           <Select
@@ -284,6 +308,8 @@ export default function Home() {
             }}
             variant="filled"
             borderRadius="20px"
+            backgroundColor={"rgba(149, 156, 151, 0.0)"}
+            h={isLargerThan500 ? "50px" : "30px"}
           >
             <option value={"0"}>Synth Poker</option>
             <option value={"1"}>Airhead</option>
@@ -296,11 +322,12 @@ export default function Home() {
         <Flex
           direction="row"
           alignItems="center"
-          backgroundColor="white"
-          borderRadius="20px"
+          backgroundColor={"rgba(149, 156, 151, 0.8)"}
+          us="20px"
           boxShadow={"4px 4px 12px 0px #9d90f0"}
+          borderRadius="20px"
         >
-          <Text w="10%" ml="2%">
+          <Text w="10%" ml="2%" minW={"80px"} fontSize={isLargerThan500 ? "L" : "sm"}>
             EFX
           </Text>
           <Select
@@ -310,6 +337,8 @@ export default function Home() {
             }}
             variant="filled"
             borderRadius="20px"
+            backgroundColor={"rgba(149, 156, 151, 0.0)"}
+            h={isLargerThan500 ? "50px" : "30px"}
           >
             <option value={"0"}>The Polygraph</option>
             <option value={"1"}>Emergency</option>
@@ -325,11 +354,12 @@ export default function Home() {
         <Flex
           direction="row"
           alignItems="center"
-          backgroundColor="white"
-          borderRadius="20px"
+          backgroundColor={"rgba(149, 156, 151, 0.8)"}
+          us="20px"
           boxShadow={"4px 4px 12px 0px #9d90f0"}
+          borderRadius="20px"
         >
-          <Text w="10%" ml="2%">
+          <Text w="10%" ml="2%" minW={"80px"} fontSize={isLargerThan500 ? "L" : "sm"}>
             Breakdown
           </Text>
           <Select
@@ -339,6 +369,9 @@ export default function Home() {
             }}
             variant="filled"
             borderRadius="20px"
+            backgroundColor={"rgba(149, 156, 151, 0.0)"}
+            h={isLargerThan500 ? "50px" : "30px"}
+            
           >
             <option value={"0"}>The Gospel</option>
             <option value={"1"}>Ascender</option>
@@ -356,6 +389,7 @@ export default function Home() {
           mb={"5%"}
           borderRadius={"20px"}
           backgroundColor={!isPlaying ? "green.300" : "red.300"}
+          minH={"30px"}
         >
           {!isPlaying ? "Play" : "Pause"}
         </Button>
